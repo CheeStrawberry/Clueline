@@ -1246,32 +1246,31 @@ body.smdrag,body.smdrag *{cursor:grabbing!important;user-select:none!important}
   /* 6 ----------------------------------------------------------------- */
   S.push(build({
     id: 'toast', title: 'The Last Toast', subtitle: 'An old house, a stormy night',
-    blurb: 'A man is found dead, and then he raises his glass again. Run the check.', status: 'Draft 1',
+    blurb: 'A toast was moved to a later chapter during revision. Run the check to see what that did.', status: 'Draft 2',
     chapters: [
-      ["The Storm", "By nine the storm had stopped pretending to be weather and become a siege. Rain hammered the slates of the old Hallam house, and the wind worked at every shutter in turn. At twenty to ten, the back door, swollen shut since March, gave way to a patient shoulder. Water ran from a dark coat onto the kitchen tiles. Whoever it was stood perfectly still, listening to the house listening back. From far above came the sound of laughter. The figure peeled off wet gloves, one finger at a time, and slipped into the hall beneath the stairs, where the light did not reach."],
-      ["Upstairs", "Upstairs, in the long sitting room, four friends had claimed the fire. Daniel had brought the whisky, Maya the good glasses, and Theo a deck of cards nobody wanted to play. Priya sat on the arm of the sofa with her shoes off, telling a story about a wedding that kept getting worse. The clock on the mantel said ten to ten. Candles leaned in their saucers whenever the wind found the chimney. It was the kind of evening that felt as if it could be kept in a drawer and taken out later."],
-      ["The Sound", "At twelve minutes past ten, something struck the floor below, a dull, heavy sound, like a chair going over. The laughter thinned. Daniel tilted his head toward the stairs. \"Probably the shutters,\" Theo said. \"Probably,\" Daniel agreed, and stood. He raised his glass to the room. \"To the storm, and to anyone fool enough to be out in it.\" He drank, set the glass down on the mantel, and picked up the torch. \"Two minutes,\" he said. Nobody watched him go. The door clicked shut behind him."],
-      ["The Empty Chair", "Two minutes became ten. Theo dealt a hand no one looked at. Priya finished her wedding story to a polite silence. Daniel's chair stayed empty, still turned toward the fire, and on the mantel the ice had melted in his untouched glass, leaving a pale ring on the wood. At twenty to eleven Maya stopped pretending to listen to the rain. \"He would have been back,\" she said, mostly to herself. Theo shrugged, but he had stopped shuffling. Somewhere beneath them the house creaked, a long, slow note."],
-      ["The Stairs", "Maya picked up her coat. \"I'm going to look,\" she said, and nobody argued. She took the lamp from the landing table and went down the stairs one careful step at a time, her own shadow bending ahead of her. At the foot of the stairs the lamp light found a shoe, then a trouser leg, then Daniel, lying very still on the cold flagstones with his torch rolled into the corner. It was ten fifty-two. Maya screamed. Then she found her voice and called up the stairwell: \"Daniel's been stabbed!\""],
-      ["The Glass", "Upstairs, Daniel raised his glass. \"To the storm,\" he said, and the firelight turned the whisky amber. Theo laughed. Priya was already reaching for the bottle, and the candles leaned together as the wind found the chimney. Outside, the rain kept up its long argument with the roof."],
+      ["The Storm", "It was a dark and stormy night. Rain hammered the slates of the old Hallam house, and the wind worked at every shutter in turn. At twenty to ten, the front door, which no one had thought to lock, opened without a sound. Water ran from a dark coat onto the hall tiles. Whoever it was stood perfectly still, listening to the house listening back. From far above came the sound of laughter. The figure peeled off wet gloves, one finger at a time, and slipped into the shadow beneath the stairs, where the light did not reach."],
+      ["Upstairs", "Upstairs, in the long sitting room, four friends had claimed the fire. Daniel had brought the whisky, Maya the good glasses, and Theo a deck of cards nobody wanted to play. Priya sat on the arm of the sofa with her shoes off, telling a story about a wedding that kept getting worse. The clock on the mantel said ten to ten. Candles leaned in their saucers whenever the wind found the chimney. The evening was still young."],
+      ["The Sound", "At twelve minutes past ten, something struck the floor below, a dull, heavy sound, like a chair going over. The laughter thinned. Daniel tilted his head toward the stairs. \"Probably the shutters,\" Theo said. \"Probably,\" Daniel agreed. Then he heard it again. He set down his glass on the mantel, picked up the torch, and stood. \"Two minutes,\" he said. Nobody watched him go. The door clicked shut behind him."],
+      ["The Empty Chair", "Two minutes became ten. Theo dealt a hand no one looked at. Priya finished her wedding story to a polite silence. Daniel's chair stayed empty, still turned toward the fire, and on the mantel the ice had melted in his untouched glass, leaving a pale ring on the wood. At twenty to eleven Maya stood and picked up her coat. \"I should go,\" she said. \"It's getting late.\" Theo shrugged, but he had stopped shuffling. Somewhere beneath them the house creaked, a long, slow note."],
+      ["The Stairs", "Maya took the lamp from the landing table and went down the stairs one careful step at a time, her own shadow bending ahead of her. At the foot of the stairs the lamp light found a shoe, then a trouser leg, then Daniel, lying very still on the cold flagstones beside a bloodied knife, his torch rolled into the corner. It was ten fifty-two."],
+      ["The Cry", "Maya screamed. It was not a sound she had known she could make, and it went up the stairwell and into the walls. Then she found her voice and called to the room above: \"Daniel's been stabbed!\" Her voice broke on the last word, and the house took it and gave nothing back."],
+      ["The Toast", "Upstairs, Daniel raised his glass. \"To the storm,\" he said, and the firelight turned the whisky amber. Theo laughed. Priya was already reaching for the bottle, and the candles leaned together as the wind found the chimney. Outside, the rain kept up its long argument with the roof."],
       ["Down the Stairs", "Maya's cry came up the stairwell like something thrown. Theo was on his feet first, the cards sliding from his lap, and Priya was right behind him with the other lamp. They took the stairs two at a time. At the bottom, Maya knelt on the flagstones with her coat pulled around her, and none of them said a word. The storm leaned on the house. Somewhere in the dark of the hall, a door that should have been closed moved very slightly on its hinges."]
     ],
     suspects: [{ id: 'daniel', name: 'Daniel' }, { id: 'maya', name: 'Maya' }, { id: 'theo', name: 'Theo' }, { id: 'priya', name: 'Priya' }, { id: 'stranger', name: 'The intruder' }],
     culprit: null,
-    travel: { 'upstairs|stairs': 1, 'back door|stairs': 1, 'back door|upstairs': 1 },
+    travel: { 'upstairs|stairs': 1, 'front door|stairs': 1, 'front door|upstairs': 1 },
     events: [
-      { id: 'e1', time: '21:40', place: 'back door', who: ['stranger'], label: 'The intruder slips in at the back door', hidden: true, optional: true },
-      { id: 'e2', time: '22:12', place: 'upstairs', who: ['daniel'], label: 'Daniel raises his glass, then goes to check' },
+      { id: 'e1', time: '21:40', place: 'front door', who: ['stranger'], label: 'The intruder slips in at the front door', hidden: true, optional: true },
+      { id: 'e2', time: '22:10', place: 'upstairs', who: ['daniel'], label: 'Daniel raises his glass in a toast' },
       { id: 'e3', time: '22:14', place: 'stairs', who: ['daniel'], label: 'Daniel is killed at the foot of the stairs', hidden: true, death: true },
-      { id: 'e4', time: '22:52', place: 'stairs', who: ['maya'], label: 'Maya finds Daniel' },
-      { id: 'e5', time: '22:53', place: 'upstairs', who: ['daniel'], label: 'Daniel raises his glass (as told here)' }
+      { id: 'e4', time: '22:52', place: 'stairs', who: ['maya'], label: 'Maya finds Daniel' }
     ],
     tags: [
-      T('clue', 1, 'gave way to a patient shoulder', 'Someone forces the back door', { s: 'stranger', w: 1, e: 'e1' }),
-      T('clue', 3, 'He raised his glass to the room.', 'Daniel toasts, then leaves', { w: 1, e: 'e2' }),
+      T('clue', 1, 'opened without a sound', 'Someone enters by the front door', { s: 'stranger', w: 1, e: 'e1' }),
       T('clue', 4, 'the ice had melted in his untouched glass', 'Daniel never came back', { w: 1, e: 'e3' }),
-      T('reveal', 5, "Daniel's been stabbed!", 'Daniel found dead', { e: 'e3' }),
-      T('clue', 6, 'Daniel raised his glass', 'Daniel alive again after his death', { w: 1, e: 'e5' })
+      T('reveal', 6, "Daniel's been stabbed!", 'Daniel found dead', { e: 'e3' }),
+      T('clue', 7, 'Daniel raised his glass', 'The toast', { w: 1, e: 'e2' })
     ],
     twists: []
   }));
